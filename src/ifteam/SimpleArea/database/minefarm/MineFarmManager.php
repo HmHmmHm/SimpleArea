@@ -146,11 +146,7 @@ class MineFarmManager {
 			return false;
 		}
 		$areaCenter = $area->getCenter ();
-		if ($player->getLevel ()->getFolderName () !== "minefarm") {
-			$player->teleport ( new Position ( $areaCenter->x, 10, $areaCenter->z, $level ) );
-		} else {
-			$player->teleport ( $areaCenter->x, 10, $areaCenter->z );
-		}
+		$player->teleport ( new Position ( $areaCenter->x, 10, $areaCenter->z, $level ) );
 		return true;
 	}
 	public function getList(CommandSender $player) {
