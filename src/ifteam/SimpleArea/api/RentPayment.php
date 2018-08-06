@@ -31,7 +31,7 @@ class RentPayment {
 		$this->economy = $this->plugin->otherApi->economyAPI->getPlugin ();
 		$this->rentProvider = RentProvider::getInstance ();
 		
-		$this->server->getScheduler ()->scheduleRepeatingTask ( new HourRentPaymentTask ( $this ), 3600 );
+		$this->plugin->getScheduler ()->scheduleRepeatingTask ( new HourRentPaymentTask ( $this ), 3600 );
 	}
 	public function payment() {
 		if ($this->economy === null)

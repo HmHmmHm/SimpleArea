@@ -1,9 +1,12 @@
 name: SimpleArea
 main: ifteam\SimpleArea\SimpleArea
-version: 2.0.0.30
+version: 2.0.1
 author: ifteam
-api: [3.0.0-ALPHA6, 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10]
+api: 3.0.0-ALPHA12
 permissions:
+  simplearea.modallarea:
+    description: Allows to change blocks in all areas
+    default: op
   simplearea.area:
     description: Allows to control area
     default: true

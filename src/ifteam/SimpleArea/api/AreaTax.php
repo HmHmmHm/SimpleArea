@@ -39,7 +39,7 @@ class AreaTax {
 		$this->server = Server::getInstance ();
 		$this->economy = $this->plugin->otherApi->economyAPI->getPlugin ();
 		
-		$this->server->getScheduler ()->scheduleRepeatingTask ( new HourTaxCheckTask ( $this ), 3600 );
+		$this->plugin->getScheduler ()->scheduleRepeatingTask ( new HourTaxCheckTask ( $this ), 3600 );
 	}
 	public function payment() {
 		if ($this->economy === null)

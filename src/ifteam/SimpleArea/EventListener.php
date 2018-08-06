@@ -1227,7 +1227,7 @@ class EventListener implements Listener {
 
 
 	public function onBlockChangeEvent(Event $event) {
-		if ($event->getPlayer ()->isOp ())
+		if ($event->getPlayer ()->hasPermission('simplearea.modallarea'))
 			return;
 		$area = $this->areaProvider->getArea ( $event->getBlock ()->getLevel (), $event->getBlock ()->x, $event->getBlock ()->z, strtolower($event->getPlayer()->getName()) );
 		if ($area instanceof AreaSection) {

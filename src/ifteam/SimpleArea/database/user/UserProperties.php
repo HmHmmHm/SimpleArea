@@ -24,6 +24,7 @@ use ifteam\SimpleArea\database\world\WhiteWorldProvider;
 use ifteam\SimpleArea\database\world\WhiteWorldData;
 
 class UserProperties implements Listener {
+	private $simpleArea;
 	private static $instance = null;
 	/**
 	 *
@@ -56,7 +57,9 @@ class UserProperties implements Listener {
 		$this->areaProvider = AreaProvider::getInstance ();
 		$this->rentProvider = RentProvider::getInstance ();
 		$this->whiteWorldProvider = WhiteWorldProvider::getInstance ();
+		$this->simpleArea = $this->server->getPluginManager()->getPlugin("SimpleArea");
 		$this->init ();
+		
 	}
 	/**
 	 * Load list the user area holdings
@@ -361,13 +364,13 @@ class UserProperties implements Listener {
 		}
 	}
 	public function onAreaAddEvent(AreaAddEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
 	}
 	public function onAreaDeleteEvent(AreaDeleteEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
 	}
 	public function onAreaResidentEvent(AreaResidentEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckAreaEventTask ( $this, $event ), 1 );
 	}
 	/**
 	 * Apply rent event
@@ -415,16 +418,16 @@ class UserProperties implements Listener {
 		}
 	}
 	public function onRentAddEvent(RentAddEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
 	}
 	public function onRentDeleteEvent(RentDeleteEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
 	}
 	public function onRentBuyEvent(RentBuyEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
 	}
 	public function onRentOutEvent(RentOutEvent $event) {
-		$this->server->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
+		$this->simpleArea->getScheduler ()->scheduleDelayedTask ( new CheckRentEventTask ( $this, $event ), 1 );
 	}
 	/**
 	 *

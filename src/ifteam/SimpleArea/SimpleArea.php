@@ -73,7 +73,7 @@ class SimpleArea extends PluginBase implements Listener {
 		$this->getServer ()->getPluginManager ()->registerEvents ( $this->userProperties, $this );
 		$this->getServer ()->getPluginManager ()->registerEvents ( $this->eventListener, $this );
 		
-		$this->getServer ()->getScheduler ()->scheduleRepeatingTask ( new AutoSaveTask ( $this ), 18000 );
+		$this->getScheduler ()->scheduleRepeatingTask ( new AutoSaveTask ( $this ), 18000 );
  
 		
 		$this->registerCommand ( $this->get ( "commands-area" ), "simplearea.area", $this->get ( "commands-area-desc" ) );
